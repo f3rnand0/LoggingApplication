@@ -1,0 +1,12 @@
+localhost:8080/LoggingAppDemo/logActivity/APPlogApplication
+{"applicationName":"AppA","activity":"Testing logging of application A","activityType":"INFO"}
+{"applicationName":"AppB","activity":"Testing logging of application B","activityType":"ERROR"}
+
+localhost:8080/LoggingAppDemo/logActivity/USRlogSearch
+{"username":"arussell","sessionId":"j6oAOxCWZh/CD723LGeXlf","searchInput":"shoes"}
+
+localhost:8080/LoggingAppDemo/logActivity/USRlogResultsSelection
+{"username":"arussell","sessionId":"j6oAOxCWZh/CD723LGeXlf","searchSelection":"ASICS Mens GEL Venture 5 Running Shoe"}
+
+localhost:8080/LoggingAppDemo/logActivity/USRlogCheckoutStep
+{"username":"arussell","userGenre":"arussell","userAge":"arussell","shippingAddress":"arussell","sessionId":"j6oAOxCWZh/CD723LGeXlf","checkoutItems":[{"item":"adidas performance SNK","quantity":1},{"item":"Globmall M8S Fully Loaded KODI Quad Core","quantity":2}],"checkoutDate":"2016-01-28","checkoutCost":"$28.69"}

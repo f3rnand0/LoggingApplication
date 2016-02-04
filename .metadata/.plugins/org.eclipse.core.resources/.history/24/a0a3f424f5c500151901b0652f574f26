@@ -1,0 +1,53 @@
+package demo.logging.ws;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+import demo.appactlog.service.AppActivityService;
+import demo.logging.dto.ApplicationActivity;
+import demo.logging.dto.UserActivity;
+import demo.useractlog.service.UserActivityService;
+
+@Path("/userActivity")
+public class UserLoggingWebService {
+
+	@POST
+	@Path("/logSearch")
+	@Consumes("application/json")
+	public Response consumeJSON(1UserActivity act) {
+		UserActivityService.logSearch(act.getUsername(), act.getSessionId(), act.getSearchInput());
+		String output = act.toString();
+		return Response.status(200).entity(output).build();
+	}
+	
+	@POST
+	@Path("/logResultsSelection")
+	@Consumes("application/json")
+	public Response consumeJSON2(UserActivity act) {
+		UserActivityService.logResultsSelection(act.getUsername(), act.getSessionId(), act.getSearchSelection());
+		String output = act.toString();
+		return Response.status(200).entity(output).build();
+	}
+	
+	@POST
+	@Path("/logCheckoutStep")
+	@Consumes("application/json")
+	public Response consumeJSON3(UserActivity act) {
+		UserActivityService.logCheckoutStep(act.getUsername(), act.getUserGenre(), act.getUserAge(), act.getShippingAddress(), act.getSessionId(), act.get);
+		String output = act.toString();
+		return Response.status(200).entity(output).build();
+	}
+
+	@GET
+	@Path("/print/{userActivity}")
+	@Produces("application/json")
+	public ApplicationActivity produceJSON(@PathParam("userActivity") String usrActivity) {
+		UserActivityService act = new UserActivityService("appA", usrActivity, "INFO");
+		return act;
+	}
+}

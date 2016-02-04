@@ -1,0 +1,40 @@
+package demo.logging.ws;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+import demo.appactlog.dto.ApplicationActivity;
+import demo.appactlog.service.AppActivityService;
+
+@Path("/appActivity")
+public class LoggingWebService {
+
+	@POST
+	@Path("/log")
+	@Consumes("application/json")
+	public Response consumeJSON(ApplicationActivity act) {
+		AppActivityService.log(act.getApplicationName(), act.getActivity(), act.getActivityType());
+		String output = act.toString();
+		return Response.status(200).entity(output).build();
+	}
+
+	@GET
+	@Path("/print/{appActivity}")
+	@Produces("application/json")
+	public ApplicationActivity produceJSON(@PathParam("appActivity") String appActivity) {
+		ApplicationActivity act = new ApplicationActivity("appA", appActivity, "INFO");
+		return act;
+	}
+
+	/*@GET
+	@Path("hello")
+	public String sayHello(@QueryParam("name") String name) {
+		return "Hello: " + name;
+	};*/
+
+}

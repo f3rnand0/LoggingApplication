@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %-5level [%thread] %logger{35}: %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="AppA" class="ch.qos.logback.core.FileAppender">
+		<file>C:/workspaces/SoftwareArchitectCrossover/logs/appA.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="AppB" class="ch.qos.logback.core.FileAppender">
+		<file>C:/workspaces/SoftwareArchitectCrossover/logs/appB.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="AppA" level="DEBUG" additivity="false">
+		<appender-ref ref="AppA" />
+	</logger>
+	<logger name="AppB" level="DEBUG" additivity="false">
+		<appender-ref ref="AppB" />
+	</logger>
+	<root level="TRACE">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

@@ -1,0 +1,5 @@
+package demo.logging.dto;
+
+public class UserCheckoutActivity {
+
+}

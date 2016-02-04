@@ -1,0 +1,2 @@
+2016-01-29 08:28:09,897 [default task-22] ERROR AppB - Testing logging of application B. Test 2
+2016-01-29 08:28:23,955 [default task-23] DEBUG AppB - Testing logging of application B. Test 2

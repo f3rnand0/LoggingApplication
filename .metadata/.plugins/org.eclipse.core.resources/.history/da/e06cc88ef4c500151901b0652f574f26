@@ -1,0 +1,13 @@
+package demo.useractlog.service;
+
+/**
+ * Hello world!
+ *
+ */
+public class UserActivityService {
+
+	// TODO
+	// Get user data and save it in mongo database using mongo java driver for al three methods
+	public static void logCheckoutStep(String username, String sessionId, String searchInput) {
+	}	
+}

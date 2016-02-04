@@ -1,0 +1,17 @@
+1453915424950	Rename type 'App'
+1453915879037	Rename package 'demo.appactlog.service'
+1453921513725	Move file
+1453928934598	Rename package 'demo.webservice'
+1453992866472	Rename type 'AppActivityService'
+1453993671351	Rename type 'AppAActivityService'
+1453994328446	Rename package 'demo.appactlog.api'
+1453994477398	Rename type 'AppA'
+1453994790237	Delete element
+1453994957410	Rename compilation unit 'AppTest.java'
+1453995217419	Rename type 'AppActivityServiceTest'
+1453997802966	Move compilation unit
+1453997818564	Rename type 'ServiceMethod'
+1453998672609	Rename compilation unit 'AppTest.java'
+1454001763615	Rename field 'slf4jLoggerAppA'
+1454001776788	Rename field 'slf4jLoggerAppB'
+1454009313205	Delete elements

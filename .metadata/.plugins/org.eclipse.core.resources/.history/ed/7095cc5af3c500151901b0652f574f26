@@ -1,0 +1,72 @@
+package demo.logging.dto;
+
+public class UserActivity {
+
+	private String username;
+	private String userAge;
+	private String shippingAddress;
+	
+	private String sessionId;
+	private String searchInput;
+	private String searchSelection;
+	private CheckoutItem[] checkoutItems;
+	private String checkoutCost;
+	
+	public UserActivity() {
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	public String getSearchInput() {
+		return searchInput;
+	}
+
+	public void setSearchInput(String searchInput) {
+		this.searchInput = searchInput;
+	}
+
+	public String getSearchSelection() {
+		return searchSelection;
+	}
+
+	public void setSearchSelection(String searchSelection) {
+		this.searchSelection = searchSelection;
+	}
+
+	public CheckoutItem[] getCheckoutItems() {
+		return checkoutItems;
+	}
+
+	public void setCheckoutItems(CheckoutItem[] checkoutItems) {
+		this.checkoutItems = checkoutItems;
+	}
+
+	public String getActivityType() {
+		return activityType;
+	}
+
+	public void setActivityType(String activityType) {
+		this.activityType = activityType;
+	}
+
+	@Override
+	public String toString() {
+//		return new StringBuffer(" Application name : ").append(this.applicationName)
+//				.append(", Activity : ").append(this.activity).append(", Activity type : ")
+//				.append(this.activityType).toString();
+	}
+}

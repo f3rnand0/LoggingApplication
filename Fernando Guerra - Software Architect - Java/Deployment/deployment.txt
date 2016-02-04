@@ -1,0 +1,1 @@
+Install the war file in any web application server

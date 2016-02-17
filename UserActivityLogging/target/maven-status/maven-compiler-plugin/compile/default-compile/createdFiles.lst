@@ -1,3 +1,4 @@
 demo\useractlog\service\UserActivityService.class
 demo\useractlog\dto\UserActivity.class
-demo\useractlog\dto\CheckoutItem.class
+demo\useractlog\dto\CheckOutItem.class
+demo\useractlog\dao\MongoDAO.class

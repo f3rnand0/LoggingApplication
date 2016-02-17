@@ -1,5 +1,7 @@
 package demo.logging.ws;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,14 +15,20 @@ import demo.appactlog.service.AppActivityService;
 import demo.useractlog.dto.UserActivity;
 import demo.useractlog.service.UserActivityService;
 
+@Stateless
 @Path("/logActivity")
 public class LoggingWebService {
+
+	@Inject
+	private AppActivityService app;
+	@Inject
+	private UserActivityService usr;
 
 	@POST
 	@Path("/APPlogApplication")
 	@Consumes("application/json")
 	public Response consumeJSON(ApplicationActivity act) {
-		AppActivityService.log(act.getApplicationName(), act.getActivity(), act.getActivityType());
+		this.app.log(act);
 		String output = act.toString();
 		return Response.status(200).entity(output).build();
 	}
@@ -37,7 +45,7 @@ public class LoggingWebService {
 	@Path("/USRlogSearch")
 	@Consumes("application/json")
 	public Response consumeJSON(UserActivity act) {
-		UserActivityService.logSearch(act.getUsername(), act.getSessionId(), act.getSearchInput());
+		this.usr.logUserActivity(act);
 		String output = act.toString();
 		return Response.status(200).entity(output).build();
 	}
@@ -46,8 +54,7 @@ public class LoggingWebService {
 	@Path("/USRlogResultsSelection")
 	@Consumes("application/json")
 	public Response consumeJSON2(UserActivity act) {
-		UserActivityService.logResultsSelection(act.getUsername(), act.getSessionId(),
-				act.getSearchSelection());
+		this.usr.logUserActivity(act);
 		String output = act.toString();
 		return Response.status(200).entity(output).build();
 	}
@@ -56,9 +63,7 @@ public class LoggingWebService {
 	@Path("/USRlogCheckoutStep")
 	@Consumes("application/json")
 	public Response consumeJSON3(UserActivity act) {
-		UserActivityService.logCheckoutStep(act.getUsername(), act.getUserGenre(), act.getUserAge(),
-				act.getShippingAddress(), act.getSessionId(), act.getCheckoutItems(),
-				act.getCheckoutDate(), act.getCheckoutCost());
+		this.usr.logUserActivity(act);
 		String output = act.toString();
 		return Response.status(200).entity(output).build();
 	}

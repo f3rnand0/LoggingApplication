@@ -21,8 +21,18 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
 <fullyQualifiedTypeName name="demo.logging.dto.CheckoutItem"/>
-<fullyQualifiedTypeName name="demo.useractlog.service.UserActivityService"/>
 <fullyQualifiedTypeName name="demo.logging.dto.UserActivity"/>
 <fullyQualifiedTypeName name="demo.useractlog.dto.CheckoutItem"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="javax.ejb.Stateless"/>
+<fullyQualifiedTypeName name="ch.qos.logback.core.Context"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="demo.appactlog.dto.ApplicationActivity"/>
+<fullyQualifiedTypeName name="demo.useractlog.service.UserActivityService"/>
+<fullyQualifiedTypeName name="demo.useractlog.dto.UserActivity"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="java.time.Instant"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="demo.useractlog.dto.CheckOutItem"/>
 </qualifiedTypeNameHistroy>

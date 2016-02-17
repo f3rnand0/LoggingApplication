@@ -1,2 +1,2 @@
-2016-01-29 08:27:16,011 [default task-20] INFO  AppA - Testing logging of application A
-2016-01-29 08:27:47,902 [default task-21] ERROR AppA - Testing logging of application A. Test 2
+2016-02-16 18:11:53,278 [main] INFO  AppA - Sending a log test to application A
+2016-02-16 18:13:01,227 [main] INFO  AppA - Sending a log test to application A

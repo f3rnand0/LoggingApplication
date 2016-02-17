@@ -1,12 +1,20 @@
 package demo.useractlog.dto;
 
-public class CheckoutItem {
+import org.mongodb.morphia.annotations.Embedded;
+
+@Embedded
+public class CheckOutItem {
 
 	private String item;
 	private Integer quantity;
 
-	public CheckoutItem() {
-
+	public CheckOutItem() {
+		
+	} 
+	
+	public CheckOutItem(String item, Integer quantity) {
+		this.item = item;
+		this.quantity = quantity;
 	}
 
 	public String getItem() {
@@ -27,7 +35,13 @@ public class CheckoutItem {
 
 	@Override
 	public String toString() {
-		return "CheckoutItem [item=" + item + ", quantity=" + quantity + "]";
+		return "CheckOutItem [" + (item != null ? "item=" + item + ", " : "")
+				+ (quantity != null ? "quantity=" + quantity : "") + "]";
 	}
+
+	/*
+	 * public String toString() { return "CheckoutItem [item=" + item + ", quantity=" + quantity +
+	 * "]"; }
+	 */
 
 }

@@ -1,5 +1,6 @@
 package demo.appactlog.service;
 
+import demo.appactlog.dto.ApplicationActivity;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -28,8 +29,8 @@ public class AppActivityServiceTest extends TestCase {
 	/**
 	 * Rigourous Test :-)
 	 */
-	public void testAppActivityService() {
-		// AppActivityService.log("AppA", "Sending a log test to application A", "INFO");
+	public void testLog() {
+		new AppActivityService().log(new ApplicationActivity("AppA", "Sending a log test to application A", "INFO"));
 		assertTrue(true);
 	}
 }

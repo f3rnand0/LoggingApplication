@@ -1,27 +1,15 @@
 package demo.useractlog.service;
 
-import java.util.Date;
+import javax.ejb.Stateless;
 
-import demo.useractlog.dto.CheckoutItem;
+import demo.useractlog.dao.MongoDAO;
+import demo.useractlog.dto.UserActivity;
 
-/**
- * Hello world!
- *
- */
+@Stateless
 public class UserActivityService {
 
-	// TODO
-	// Get user data and save it in mongo database using mongo java driver for al three methods
-
-	public static void logSearch(String username, String sessionId, String searchInput) {
+	public void logUserActivity(UserActivity usrAct) {
+		MongoDAO.getInstance().datastore.save(usrAct);
 	}
 
-	public static void logResultsSelection(String username, String sessionId,
-			String searchSelection) {
-	}
-
-	public static void logCheckoutStep(String username, String userGenre,
-			String userAge, String shippingAddress, String sessionId, CheckoutItem[] checkoutItems,
-			Date checkoutDate, String checkoutCost) {
-	}
 }

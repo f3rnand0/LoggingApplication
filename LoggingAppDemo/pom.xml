@@ -48,6 +48,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>3.0.11.Final</version>
@@ -65,7 +71,6 @@
 			<artifactId>UserActivityLogging</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>LoggingAppDemo</groupId>
 			<artifactId>AppActivityLogging</artifactId>

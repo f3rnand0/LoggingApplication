@@ -1,8 +1,0 @@
-package demo.logging.dto;
-
-public class CheckoutItem {
-	
-	private String item;
-	private String quantity;
-	
-}

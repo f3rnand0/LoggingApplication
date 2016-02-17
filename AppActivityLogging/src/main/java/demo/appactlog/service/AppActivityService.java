@@ -4,61 +4,65 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.Stateless;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import demo.appactlog.dto.ApplicationActivity;
 import demo.appactlog.dto.LogServiceMethod;
 
+@Stateless
 public class AppActivityService {
 
 	static final Logger loggerAppA = LoggerFactory.getLogger("AppA");
 	static final Logger loggerAppB = LoggerFactory.getLogger("AppB");
 
-	static final Map<String, LogServiceMethod> serviceMethodMap;
+	final Map<String, LogServiceMethod> serviceMethodMap;
 
-	static {
+	public AppActivityService() {
 		Map<String, LogServiceMethod> aMap = new HashMap<>();
-		aMap.put("AppA", (activity, activityType) -> logAppA(activity, activityType));
-		aMap.put("AppB", (activity, activityType) -> logAppB(activity, activityType));
+		aMap.put("AppA", (act) -> logAppA(act));
+		aMap.put("AppB", (act) -> logAppB(act));
 		serviceMethodMap = Collections.unmodifiableMap(aMap);
 	}
 
-	public static void log(String applicationName, String activity, String activityType) {
-		final LogServiceMethod serviceMethod = serviceMethodMap.get(applicationName);
+	public void log(ApplicationActivity act) {
+		final LogServiceMethod serviceMethod = serviceMethodMap.get(act.getApplicationName());
 		if (serviceMethod != null)
-			serviceMethod.execute(activity, activityType);
+			serviceMethod.execute(act);
 	}
 
-	private static void logAppA(String activity, String activityType) {
-		switch (activityType.toLowerCase()) {
+	private void logAppA(ApplicationActivity act) {
+		switch (act.getActivityType().toLowerCase()) {
 		case "info":
-			loggerAppA.info(activity);
+			loggerAppA.info(act.getActivity());
 			break;
 		case "error":
-			loggerAppA.error(activity);
+			loggerAppA.error(act.getActivity());
 			break;
 		case "debug":
-			loggerAppA.debug(activity);
+			loggerAppA.debug(act.getActivity());
 			break;
 		default:
-			loggerAppA.info(activity);
+			loggerAppA.info(act.getActivity());
 			break;
 		}
 	}
 
-	private static void logAppB(String activity, String activityType) {
-		switch (activityType.toLowerCase()) {
+	private void logAppB(ApplicationActivity act) {
+		switch (act.getActivityType().toLowerCase()) {
 		case "info":
-			loggerAppB.info(activity);
+			loggerAppB.info(act.getActivity());
 			break;
 		case "error":
-			loggerAppB.error(activity);
+			loggerAppB.error(act.getActivity());
 			break;
 		case "debug":
-			loggerAppB.debug(activity);
+			loggerAppB.debug(act.getActivity());
 			break;
 		default:
-			loggerAppB.info(activity);
+			loggerAppB.info(act.getActivity());
 			break;
 		}
 	}

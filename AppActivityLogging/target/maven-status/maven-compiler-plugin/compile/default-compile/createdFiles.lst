@@ -1,3 +1,4 @@
 demo\appactlog\service\AppActivityService.class
 demo\appactlog\dto\ApplicationActivity.class
 demo\appactlog\dto\LogServiceMethod.class
+demo\appactlog\service\LoggerStartupListener.class

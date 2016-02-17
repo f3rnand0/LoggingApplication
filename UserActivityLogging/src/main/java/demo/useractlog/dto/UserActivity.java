@@ -3,35 +3,66 @@ package demo.useractlog.dto;
 import java.util.Arrays;
 import java.util.Date;
 
-public class UserActivity {
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Embedded;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
-	private String username;
+@Entity(value = "userActivity", noClassnameStored = true)
+public class UserActivity {
+	@Id
+	private ObjectId id;
+
+	private String userName;
 	private String userGenre;
-	private String userAge;
+	private Integer userAge;
 	private String shippingAddress;
 	private String sessionId;
 	private String searchInput;
 	private String searchSelection;
-	private CheckoutItem[] checkoutItems;
-	private Date checkoutDate;
-	private String checkoutCost;
 
+	@Embedded
+	private CheckOutItem[] checkoutItems;
+
+	private Date checkoutDate;
+	private Double checkoutCost;
+	
 	public UserActivity() {
 	}
 
-	public UserActivity(String username, String sessionId, String searchInput) {
-		super();
-		this.username = username;
+	public UserActivity(String userName, String sessionId, String searchInput) {
+		this.userName = userName;
 		this.sessionId = sessionId;
 		this.searchInput = searchInput;
 	}
 
-	public String getUsername() {
-		return username;
+	public UserActivity(String userName, String userGenre, Integer userAge, String shippingAddress,
+			String sessionId, CheckOutItem[] checkoutItems, Date checkoutDate,
+			Double checkoutCost) {
+		this.userName = userName;
+		this.userGenre = userGenre;
+		this.userAge = userAge;
+		this.shippingAddress = shippingAddress;
+		this.sessionId = sessionId;
+		this.checkoutItems = checkoutItems;
+		this.checkoutDate = checkoutDate;
+		this.checkoutCost = checkoutCost;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public ObjectId getId() {
+		return id;
+	}
+
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getUserGenre() {
@@ -42,11 +73,11 @@ public class UserActivity {
 		this.userGenre = userGenre;
 	}
 
-	public String getUserAge() {
+	public Integer getUserAge() {
 		return userAge;
 	}
 
-	public void setUserAge(String userAge) {
+	public void setUserAge(Integer userAge) {
 		this.userAge = userAge;
 	}
 
@@ -82,11 +113,11 @@ public class UserActivity {
 		this.searchSelection = searchSelection;
 	}
 
-	public CheckoutItem[] getCheckoutItems() {
+	public CheckOutItem[] getCheckoutItems() {
 		return checkoutItems;
 	}
 
-	public void setCheckoutItems(CheckoutItem[] checkoutItems) {
+	public void setCheckoutItems(CheckOutItem[] checkoutItems) {
 		this.checkoutItems = checkoutItems;
 	}
 
@@ -98,20 +129,36 @@ public class UserActivity {
 		this.checkoutDate = checkoutDate;
 	}
 
-	public String getCheckoutCost() {
+	public Double getCheckoutCost() {
 		return checkoutCost;
 	}
 
-	public void setCheckoutCost(String checkoutCost) {
+	public void setCheckoutCost(Double checkoutCost) {
 		this.checkoutCost = checkoutCost;
 	}
 
 	@Override
 	public String toString() {
-		return "UserActivity [username=" + username + ", userGenre=" + userGenre + ", userAge="
-				+ userAge + ", shippingAddress=" + shippingAddress + ", sessionId=" + sessionId
-				+ ", searchInput=" + searchInput + ", searchSelection=" + searchSelection
-				+ ", checkoutItems=" + Arrays.toString(checkoutItems) + ", checkoutDate="
-				+ checkoutDate + ", checkoutCost=" + checkoutCost + "]";
+		return "UserActivity [" + (id != null ? "id=" + id + ", " : "")
+				+ (userName != null ? "userName=" + userName + ", " : "")
+				+ (userGenre != null ? "userGenre=" + userGenre + ", " : "")
+				+ (userAge != null ? "userAge=" + userAge + ", " : "")
+				+ (shippingAddress != null ? "shippingAddress=" + shippingAddress + ", " : "")
+				+ (sessionId != null ? "sessionId=" + sessionId + ", " : "")
+				+ (searchInput != null ? "searchInput=" + searchInput + ", " : "")
+				+ (searchSelection != null ? "searchSelection=" + searchSelection + ", " : "")
+				+ (checkoutItems != null && checkoutItems.length > 0
+						? "checkoutItems=" + Arrays.toString(checkoutItems) + ", " : "")
+				+ (checkoutDate != null ? "checkoutDate=" + checkoutDate + ", " : "")
+				+ (checkoutCost != null ? "checkoutCost=" + checkoutCost : "") + "]";
 	}
+
+	/*
+	 * public String toString() { return "UserActivity [username=" + userName + ", userGenre=" +
+	 * userGenre + ", userAge=" + userAge + ", shippingAddress=" + shippingAddress + ", sessionId="
+	 * + sessionId + ", searchInput=" + searchInput + ", searchSelection=" + searchSelection +
+	 * ", checkoutItems=" + Arrays.toString(checkoutItems) + ", checkoutDate=" + checkoutDate +
+	 * ", checkoutCost=" + checkoutCost + "]"; }
+	 */
+
 }
